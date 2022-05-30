@@ -13,7 +13,7 @@ matplotlib.use('Qt5Agg')
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg, NavigationToolbar2QT as NavigationToolBar
 from matplotlib.figure import Figure
 import numpy as np
-import random
+#import random
 import os
 
 class SODEW(QWidget):
@@ -186,7 +186,7 @@ class SODEW(QWidget):
 			self.gale_lbl.move(400,210)
 
 			self.ser_lbl = QLabel(self)
-			self.ser_pic = QPixmap('formula1.gif')
+			self.ser_pic = QPixmap('miscellaneous/formula1.gif')
 			self.ser_lbl.setPixmap(self.ser_pic)
 			self.ser_lbl.adjustSize()
 			self.ser_lbl.move(375,250)
@@ -425,13 +425,11 @@ class SODEW(QWidget):
 				self.y1_str = f.readline().strip()
 				self.n_str = f.readline().strip()
 				self.r_norm = float(f.readline().strip())
-				print('*')
 				y = []
 				for i in range(99):
 					y.append(float(f.readline().strip()))
 				self.y = y
 
-			print(self.a_str, self.a_param_str)
 			self.setFields()
 			self.setCurrentODE()
 			m = 100
@@ -458,7 +456,7 @@ class SODEW(QWidget):
 	def setFields(self):
 		self.ca_cb.setCurrentIndex(cb_functions.index(self.a_str))
 		self.ca_le.setText(self.a_param_str)
-		self.cb_cb.setCurrentIndex(cb_functions.index(self.c_str))
+		self.cb_cb.setCurrentIndex(cb_functions.index(self.b_str))
 		self.cb_le.setText(self.b_param_str)
 		self.cc_cb.setCurrentIndex(cb_functions.index(self.c_str))
 		self.cc_le.setText(self.c_param_str)
@@ -558,13 +556,9 @@ class SODEW(QWidget):
 		self.y0 = float(self.y0_str)
 		self.y1 = float(self.y1_str)
 
-		print(self.a_str)
-		print(self.a_param)
-
 		a_full = self.getFunctionText(self.a_str, self.a_param)
 		b_full = self.getFunctionText(self.b_str, self.b_param)
 		c_full = self.getFunctionText(self.c_str, self.c_param)
-		print(a_full)
 		ode = 'y\'\' + {0} * y\' + {1} * y = {2}'.format(a_full, \
 			                                         b_full, \
 			                                         c_full)

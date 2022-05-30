@@ -62,7 +62,7 @@ class RF:
         return curf
 
     def scalar(f, g):
-        return (f*g).integrate(0,1)
+        return (f*g).integrate(1/100,1-1/100)
 
     def norm(f):
         #print(RF.scalar(f,f))
