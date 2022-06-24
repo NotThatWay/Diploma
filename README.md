@@ -8,18 +8,24 @@
 Шаг 1. Установка недостающих библиотек:
 
 pip3 install numpy
+
 pip3 install matplotlib
+
 pip3 install scipy
+
 pip3 install PyQt5
 
 
 Шаг 2. Запуск программы:
 
 Из директории с приложением
-либо
+
+либо:
+
 python app1.py
 
 либо
+
 python3 app1.py
 
 Это зависит от того, какой именно командой вы запускаете интерпретатор Python.
