@@ -13,14 +13,13 @@ matplotlib.use('Qt5Agg')
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg, NavigationToolbar2QT as NavigationToolBar
 from matplotlib.figure import Figure
 import numpy as np
-#import random
 import os
 
 class SODEW(QWidget):
 	def __init__(self):
 		try:
 			super(QWidget, self).__init__()
-			self.setWindowTitle('SODE window')
+			self.setWindowTitle('TVLSA window')
 			self.setFixedSize(1300,650)
 			self.font = QFont()
 			self.font.setPixelSize(15)
@@ -31,9 +30,9 @@ class SODEW(QWidget):
 
 			# SECTION 1
 			self.label10 = QLabel(self)
-			self.label10.setText('ODE:')
+			self.label10.setText('Time-varying linear system:')
 			self.label10.setFont(self.font1)
-			self.label10.move(300,30)
+			self.label10.move(50,30)
 
 			self.label11 = QLabel(self)
 			self.label11.setFont(self.font1)
@@ -48,13 +47,13 @@ class SODEW(QWidget):
 			self.label13.move(50,130)
 
 			self.solve_btn = QPushButton(self)
-			self.solve_btn.setText('SOLVE')
+			self.solve_btn.setText('Solve')
 			self.solve_btn.move(500,130)
 			self.solve_btn.clicked.connect(self.solveODE)
 
 			# SECTION 2
 			self.label20 = QLabel(self)
-			self.label20.setText('construct ODE')
+			self.label20.setText('construct system')
 			self.label20.setFont(self.font1)
 			self.label20.move(50,210)
 
@@ -175,13 +174,13 @@ class SODEW(QWidget):
 			self.bc_errlbl2.move(170,452)
 
 			self.set_btn = QPushButton(self)
-			self.set_btn.setText('SET')
+			self.set_btn.setText('set')
 			self.set_btn.move(75,480)
 			self.set_btn.clicked.connect(self.setCurrentODE)
 
 			# SECTION 3
 			self.gale_lbl = QLabel(self)
-			self.gale_lbl.setText('Galerkin method')
+			self.gale_lbl.setText('trial solution')
 			self.gale_lbl.setFont(self.font1)
 			self.gale_lbl.move(400,210)
 

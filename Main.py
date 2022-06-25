@@ -7,25 +7,24 @@ class Main(QWidget):
     def __init__(self):
         try:
             super(QWidget, self).__init__()
-            #self.conn = conn
             self.setWindowTitle('Main')
-            self.setFixedSize(400, 400)
+            self.setFixedSize(400, 150)
             self.font = QFont()
             self.font.setPixelSize(20)
 
             self.welcome = QLabel(self)
-            self.welcome.setText('Welcome to SODE solver!!!')
+            self.welcome.setText('Time-varying linear systems analyser')
             self.welcome.setFont(self.font)
-            self.welcome.move(70,100)
+            self.welcome.move(30,50)
 
             self.btn1 = QPushButton(self)
             self.btn1.setText('Start')
-            self.btn1.move(170,150)
+            self.btn1.move(75,100)
             self.btn1.clicked.connect(self.start1_btn)
 
             self.btn2 = QPushButton(self)
             self.btn2.setText('Exit')
-            self.btn2.move(300,350)
+            self.btn2.move(250,100)
             self.btn2.clicked.connect(self.exit_btn)
 
             self.sodew = None
